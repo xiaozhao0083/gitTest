@@ -1,7 +1,6 @@
-package com.yyq.dao.impl;
+package com.yyq.springTest1.dao.impl;
 
-import com.yyq.dao.UserDao;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.yyq.springTest1.dao.UserDao;
 import org.springframework.stereotype.Repository;
 
 /**

@@ -1,11 +1,9 @@
-package com.yyq;
+package com.yyq.springTest1;
 
-import com.yyq.config.SpringConfig;
-import com.yyq.dao.UserDao;
-import com.yyq.service.UserService;
+import com.yyq.springTest1.config.SpringConfig;
+import com.yyq.springTest1.dao.UserDao;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.stereotype.Controller;
 
 /**
  * @program: gitTest
@@ -13,7 +11,7 @@ import org.springframework.stereotype.Controller;
  * @author:yyq
  * @create: 2023-07-25 19:00
  */
-public class UserController {
+public class App {
     public static void main(String[] args) {
 //        ApplicationContext app = new AnnotationConfigApplicationContext(SpringConfig.class);
 //        UserDao dao= (UserDao) app.getBean(UserDao.class);

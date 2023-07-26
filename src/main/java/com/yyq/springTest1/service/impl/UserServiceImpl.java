@@ -1,7 +1,7 @@
-package com.yyq.service.impl;
+package com.yyq.springTest1.service.impl;
 
-import com.yyq.dao.UserDao;
-import com.yyq.service.UserService;
+import com.yyq.springTest1.dao.UserDao;
+import com.yyq.springTest1.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
