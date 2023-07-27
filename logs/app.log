@@ -1,5 +1,0 @@
-[ERROR][2023-07-26 10:39:49,932][java.lang.Object]名字异常Student(name=, height=80.0, weight=20.0)
-[ERROR][2023-07-26 10:42:32,048][com.yyq.springTest2.user.StudentBmiFilter]名字异常Student(name=, height=80.0, weight=20.0)
-[ERROR][2023-07-26 10:42:44,433][com.yyq.springTest2.user.StudentBmiFilter]名字异常Student(name=, height=80.0, weight=20.0)
-[ERROR][2023-07-26 10:44:40,416][com.yyq.springTest2.user.StudentBmiFilter]名字异常Student(name=, height=80.0, weight=20.0)
-[ERROR][2023-07-26 10:48:11,471][com.yyq.springTest2.user.StudentBmiFilter]名字异常Student(name=, height=80.0, weight=20.0)
