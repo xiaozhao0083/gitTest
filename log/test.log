@@ -1,1 +1,10 @@
-20:56:59.347 INFO  org.ycframework.context.YcAnnotationConfigApplicationContext 37 <init> - com.yc.MyConfig类上有@YcComponentScan注解，他要扫描的路径:com.yc
+2023-07-29 20:52:04,580 INFO  org.ycframework.context.YcAnnotationConfigApplicationContext 46 <init> - com.yc.MyConfig类上由@YcComponentScan注解   它要扫描的路径：com.yc
+2023-07-29 20:52:04,583 TRACE org.ycframework.context.YcAnnotationConfigApplicationContext 153 recursiveLoadBeanDefinition - 当前正在递归加载:/D:/java/IDEA/gitTest/selfspring/target/classes/com/yc
+2023-07-29 20:52:04,584 TRACE org.ycframework.context.YcAnnotationConfigApplicationContext 188 findPackageClasses - 递归:D:\java\IDEA\gitTest\selfspring\target\classes\com\yc\dao,它对应的包名为：com.yc.dao
+2023-07-29 20:52:04,586 INFO  org.ycframework.context.YcAnnotationConfigApplicationContext 204 findPackageClasses - 加载到一个待托管的类：com.yc.dao.UserDaoImpl
+2023-07-29 20:52:04,588 INFO  org.ycframework.context.YcAnnotationConfigApplicationContext 204 findPackageClasses - 加载到一个待托管的类：com.yc.MyConfig
+2023-07-29 20:52:04,589 TRACE org.ycframework.context.YcAnnotationConfigApplicationContext 188 findPackageClasses - 递归:D:\java\IDEA\gitTest\selfspring\target\classes\com\yc\service,它对应的包名为：com.yc.service
+2023-07-29 20:52:04,591 INFO  org.ycframework.context.YcAnnotationConfigApplicationContext 204 findPackageClasses - 加载到一个待托管的类：com.yc.service.UserBizImpl
+2023-07-29 20:52:04,592 TRACE org.ycframework.context.YcAnnotationConfigApplicationContext 131 creatBean - spring托管了：userDaoImpl=====>com.yc.dao.UserDaoImpl
+2023-07-29 20:52:04,593 TRACE org.ycframework.context.YcAnnotationConfigApplicationContext 131 creatBean - spring托管了：com.yc.MyConfig=====>com.yc.MyConfig
+2023-07-29 20:52:04,593 TRACE org.ycframework.context.YcAnnotationConfigApplicationContext 131 creatBean - spring托管了：userBizImpl=====>com.yc.service.UserBizImpl

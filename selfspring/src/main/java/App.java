@@ -1,5 +1,6 @@
 import com.yc.MyConfig;
-import com.yc.UserBiz;
+import com.yc.dao.UserDaoImpl;
+import com.yc.service.UserBiz;
 import org.ycframework.context.YcAnnotationConfigApplicationContext;
 import org.ycframework.context.YcApplicationContext;
 
@@ -12,7 +13,10 @@ import org.ycframework.context.YcApplicationContext;
 public class App {
     public static void main(String[] args) {
         YcApplicationContext ac = new YcAnnotationConfigApplicationContext(MyConfig.class);
-//        UserBiz ub= (UserBiz) ac.getBean("userBizImpl");
-//        ub.add("张三");
+        UserBiz ub= (UserBiz) ac.getBean("userBizImpl");
+        System.out.println(ub);
+        ub.add("张三");
+
+
     }
 }

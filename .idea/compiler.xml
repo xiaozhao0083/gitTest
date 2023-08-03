@@ -7,9 +7,20 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="aop1" />
         <module name="selfspring" />
+        <module name="selfproxy" />
+        <module name="txbank" />
         <module name="springTest" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="aop1" target="1.8" />
+      <module name="gitTest" target="1.8" />
+      <module name="selfproxy" target="1.8" />
+      <module name="selfspring" target="1.8" />
+      <module name="springTest" target="1.8" />
+      <module name="txbank" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
