@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.TransactionManager;
 
 import javax.sql.DataSource;
 
@@ -38,9 +40,16 @@ public class JdbcConfig {
         ds.setUsername(username);
         ds.setPassword(password);
         ds.setInitialSize(cpuCount);
-        log.info("配置druid的连接池大小："+cpuCount);
-        ds.setMaxActive(cpuCount*2);
+        log.info("配置druid的连接池大小：" + cpuCount);
+        ds.setMaxActive(cpuCount * 2);
         return ds;
+    }
+
+    @Bean
+    public TransactionManager transactionManager(DataSource dataSource) {
+        DataSourceTransactionManager manager = new DataSourceTransactionManager();
+        manager.setDataSource(dataSource);
+        return manager;
     }
 
 }

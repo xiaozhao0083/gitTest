@@ -2,7 +2,9 @@ package com.yc.bean;
 
 public enum OpType {
 
-    WITHDRAW("withdraw",1),Deposite("deposite",2),TRANSFER("transfer",3);
+    WITHDRAW("withdraw",1),
+    DEPOSITE("deposite",2),
+    TRANSFER("transfer",3);
 
     private String key;
     private int value;

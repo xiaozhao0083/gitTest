@@ -10,14 +10,7 @@ import org.springframework.stereotype.Repository;
 import javax.sql.DataSource;
 import java.sql.PreparedStatement;
 import java.util.List;
-import java.util.regex.Pattern;
 
-/**
- * @program: gitTest
- * description:
- * @author:yyq
- * @create: 2023-08-03 10:56
- */
 @Repository
 public class AccountDaoJdbcTemplateImpl implements AccountDao {
 
@@ -25,15 +18,16 @@ public class AccountDaoJdbcTemplateImpl implements AccountDao {
 
     @Autowired
     public void init(DataSource dataSource) {
-        jdbcTemplate = new JdbcTemplate(dataSource);
+        this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
     @Override
     public int insert(double money) {
+        final String INSERT_SQL = "insert into accounts (balance) values(?)";
         KeyHolder keyHolder = new GeneratedKeyHolder();
         jdbcTemplate.update(connection -> {
-            PreparedStatement ps = connection.prepareStatement("insert into accounts(balance) values(?)", new String[]{"accountid"});
-            ps.setString(1, money + "");
+            PreparedStatement ps = connection.prepareStatement(INSERT_SQL, new String[]{"accountid"});
+            ps.setDouble(1, money);
             return ps;
         }, keyHolder);
         return keyHolder.getKey().intValue();
@@ -41,42 +35,49 @@ public class AccountDaoJdbcTemplateImpl implements AccountDao {
 
     @Override
     public void update(int accountid, double money) {
-        jdbcTemplate.update("update accounts set balance=balance+? where accountid=?", money, accountid);
+        this.jdbcTemplate.update(
+                "update accounts set balance = ? where accountid = ?",
+                money, accountid);
     }
 
     @Override
-    public void delete(int accountid) {
-        jdbcTemplate.update("delete from accounts where accountid=?", Integer.valueOf(accountid));
+    public void delete(int accountId) {
+        this.jdbcTemplate.update(
+                "delete from accounts where accountid = ?",
+                Integer.valueOf(accountId));
     }
 
     @Override
     public int findCount() {
-        int rowCount = jdbcTemplate.queryForObject("select count(*) from accounts", Integer.class);
+        int rowCount = this.jdbcTemplate.queryForObject("select count(*) from accounts", Integer.class);
         return rowCount;
     }
 
     @Override
     public List<Account> findAll() {
-        List<Account> list = jdbcTemplate.query("select * from accounts",
+        List<Account> accounts = this.jdbcTemplate.query(
+                "select * from accounts",
                 (resultSet, rowNum) -> {
-                    Account a = new Account();
-                    a.setAccountid(resultSet.getInt(1));
-                    a.setMoney(resultSet.getDouble(2));
-                    return a;
+                    Account account = new Account();
+                    account.setAccountid(resultSet.getInt(1));
+                    account.setMoney(resultSet.getDouble(2));
+                    return account;
                 });
-        return list;
+        return accounts;
     }
 
     @Override
     public Account findById(int accountid) {
-        Account account = jdbcTemplate.queryForObject(
+        //模板模式
+        Account account = this.jdbcTemplate.queryForObject(
                 "select * from accounts where accountid = ?",
                 (resultSet, rowNum) -> {
-                    Account a = new Account();
-                    a.setAccountid(resultSet.getInt(1));
-                    a.setMoney(resultSet.getDouble(2));
-                    return a;
-                });
+                    Account newAccount = new Account();
+                    newAccount.setAccountid(resultSet.getInt(1));
+                    newAccount.setMoney(resultSet.getDouble(2));
+                    return newAccount;
+                },
+                accountid);
         return account;
     }
 }
